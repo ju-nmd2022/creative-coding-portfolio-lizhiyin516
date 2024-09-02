@@ -1,7 +1,7 @@
 [
   {
-    "file": "Variations of Squares.js",
-    "name": "Zhiyin Li",
-    "description": "Explains the what and the why. What is the main idea? What is the purpose? Describes the coding process and implementation choices and gives a high level system overview."
+    "file": "change.js",
+    "name": "Variations of Squares",
+    "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
   }
 ]
