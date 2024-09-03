@@ -8,7 +8,7 @@ let baseRotation = 0.1;
   
 function setup() {  
   createCanvas(canvasWidth, canvasHeight);  
-  background(255);  
+  background(255, 0, 0);  
   drawGrid();  
 }  
   
