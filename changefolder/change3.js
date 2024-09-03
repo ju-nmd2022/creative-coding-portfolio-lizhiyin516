@@ -23,7 +23,7 @@ function drawGrid() {
 
       let squareRotation = radians(currentRotation);  
       if (y >= 4 & y <15) {  
-         squareRotation = radians(Math.random() * 30);   
+         squareRotation = radians(Math.random() * 100);   
       }else if (y>=15 & y<=23){
           squareRotation = radians(Math.random() * 70+Math.random()*15); 
       } 
