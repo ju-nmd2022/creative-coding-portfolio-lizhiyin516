@@ -1,5 +1,5 @@
 let squareSize = 20;   
-let borderWidth = 0.5;   
+let borderWidth = 10;   
 let gridCols = 12;  
 let gridRows = 23;   
 let canvasWidth = gridCols * (squareSize + 2 * borderWidth);   
