@@ -1,7 +1,7 @@
 [
   {
-    "file": "change.js",
-    "name": "changefolder",
+    "file": "changefolder/change.js",
+    "name": "change",
     "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
   }
 ]
