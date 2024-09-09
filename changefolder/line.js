@@ -4,8 +4,8 @@ let days = 365;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let gridw = width * 0.9;
-  let gridh = height * 0.7;
+  let gridw = width * 0.7;
+  let gridh = height * 0.4;
   let cellw = gridw / cols;
   let cellh = gridh / rows;
   let margx = (width - gridw) * 0.5;
