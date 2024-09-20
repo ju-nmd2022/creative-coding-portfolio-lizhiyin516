@@ -40,4 +40,10 @@
     "name": "complex",
     "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
   }
+  ,
+  {
+    "file": "changefolder/sound.js",
+    "name": "sound",
+    "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
+  }
 ]

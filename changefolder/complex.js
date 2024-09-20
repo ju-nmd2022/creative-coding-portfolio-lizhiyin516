@@ -14,23 +14,23 @@ function draw() {
     fill(c);
     square(y, y, width - 2 * y);
   }
- push()
+ push();
   fill("#28C752");
   for (i = 6000; i > 0; i--) {
     x = w + sin(i + rotation_speed) * tan(i * i ) * 250;
     y = h + 250 * cos(i * i);
     circle(x, y, 2);
   }
- pop()
+ pop();
  
- push()
+ push();
   fill("#28C7BD");
   for (i = 4000; i > 0; i--) {
     x = w - cos(i + rotation_speed) * sin(i * i) * 200;
     y = h - 200 * sin(i );
     circle(x, y, 2);
   }
- pop()
+ pop();
  
  
   rotation_speed += 0.01;
