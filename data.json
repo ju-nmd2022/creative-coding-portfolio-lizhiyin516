@@ -42,8 +42,8 @@
   }
   ,
   {
-    "file": "changefolder/sound.js",
-    "name": "sound",
+    "file": "changefolder/newsound.js",
+    "name": "newsound",
     "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
   }
 ]
