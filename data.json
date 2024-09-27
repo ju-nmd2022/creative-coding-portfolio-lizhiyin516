@@ -46,4 +46,16 @@
     "name": "newsound",
     "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
   }
+  ,
+  {
+    "file": "changefolder/newsound1.js",
+    "name": "newsound1",
+    "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
+  }
+  ,
+  {
+    "file": "changefolder/newsound2.js",
+    "name": "newsound2",
+    "description": "I used the generation of the squres with different permutations and combinations to make the different shape and gather them together in a rectangle"
+  }
 ]

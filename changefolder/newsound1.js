@@ -11,16 +11,16 @@ let polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  stroke(30, 144, 255); // 设置线条颜色
-  strokeWeight(6); // 线条粗细
+  stroke(70, 20, 66); // 设置线条颜色
+  strokeWeight(32); // 线条粗细
   noFill();
 }
 
 function draw() {
-  background(0); // 浅色背景
+  background(255); // 浅色背景
   translate(width / 2, height / 2); // 将绘图中心移至画布中心
   rotate(angle); // 旋转画布
-  angle += 0.01; // 缓慢顺时针旋转
+  angle += 0.1; // 缓慢顺时针旋转
 
   // 绘制从中间辐射的线条
   for (let i = 0; i < lineCount; i++) {
@@ -34,7 +34,7 @@ function draw() {
 
   // 减小起始半径
   if (startRadius > 0) {
-    startRadius -= 1; // 每次绘制后减小起始半径
+    startRadius += 1; // 每次绘制后减小起始半径
   }
 
   // 增加线条数量
