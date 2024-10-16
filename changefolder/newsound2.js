@@ -4,16 +4,19 @@ const maxLines = 200;
 let startRadius = 0;
 const endRadius = 1000; 
 
-
-let synth = new Tone.AMSynth().toDestination();
-let fmSynth = new Tone.FMSynth().toDestination();
-let polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
+let music; // Declare globally
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   stroke(50, 99, 100); 
   strokeWeight(1);
   noFill();
+  
+  // Create the oscillator but don't start it yet
+  music = new Tone.Oscillator({
+    frequency: 110,
+    type: 'sine'
+  }).toDestination();
 }
 
 function draw() {
@@ -35,27 +38,25 @@ function draw() {
     startRadius += 1; 
   }
 
-
   if (lineCount < maxLines) {
     lineCount += 1;
-
-
-    if (lineCount % 10 === 0) {
-
-      let chord = ["C4", "E4", "G4"]; 
-      polySynth.triggerAttackRelease(chord, "2n"); 
-
-      fmSynth.triggerAttackRelease("C2", "4n"); 
-      synth.triggerAttackRelease("A3", "4n"); 
-    }
   } else {
-
     lineCount = 0;
     startRadius = 0; 
   }
 }
 
+function mousePressed() {
+  // Start the oscillator when the canvas is clicked
+  if (!music.started) {
+    music.start(); // Start the oscillator
+  }
+  
+  // Optionally adjust frequency based on interaction
+  let frequency = map(lineCount, 0, maxLines, 110, 880); // Map lineCount to a frequency range
+  music.frequency.setValueAtTime(frequency, Tone.now());
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
- 
 }
