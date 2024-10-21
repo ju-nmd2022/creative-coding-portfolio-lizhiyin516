@@ -1,59 +1,69 @@
 let angle = 0;
-let lineCount = 0;
-const maxLines = 200;
-let startRadius = 300;
-const endRadius = 500; 
+let circleCount = 0;
+const maxCircles = 150;
+let radius = 100;
+const maxRadius = 400;
 
 
-let synth = new Tone.AMSynth().toDestination();
-let fmSynth = new Tone.FMSynth().toDestination();
-let polySynth = new Tone.PolySynth(Tone.Synth).toDestination();
+let synth = new Tone.PolySynth().toDestination(); 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  stroke(70, 20, 66); 
-  strokeWeight(32); 
   noFill();
+  
+
+  Tone.start().then(() => {
+    console.log("音频上下文已启动");
+  });
 }
 
 function draw() {
-  background(255); 
-  translate(width / 2, height / 2); 
+  background(255);
+  translate(width / 2, height / 2);
   rotate(angle);
-  angle += 0.1; 
+  angle += 0.05;
 
- 
-  for (let i = 0; i < lineCount; i++) {
-    let angleRad = TWO_PI * i / lineCount; 
-    let x1 = cos(angleRad) * startRadius; 
-    let y1 = sin(angleRad) * startRadius;
-    let x2 = cos(angleRad) * endRadius; 
-    let y2 = sin(angleRad) * endRadius;
-    line(x1, y1, x2, y2);
+  for (let i = 0; i < circleCount; i++) {
+    let step = TWO_PI / circleCount;
+    let currentAngle = step * i + angle;
+    let x = cos(currentAngle) * radius;
+    let y = sin(currentAngle) * radius;
+
+    stroke(map(i, 0, circleCount, 0, 255), 100, 150);
+    ellipse(x, y, 50, 50); 
   }
 
-  if (startRadius > 0) {
-    startRadius += 1; 
+  if (radius < maxRadius) {
+    radius += 0.5; 
   }
 
-  
-  if (lineCount < maxLines) {
-    lineCount += 1;
+  if (circleCount < maxCircles) {
+    circleCount += 1;
 
 
-    if (lineCount % 10 === 0) {
-    
-      let chord = ["C4", "E4", "G4"]; 
-      polySynth.triggerAttackRelease(chord, "2n"); 
-
-      fmSynth.triggerAttackRelease("C2", "4n"); 
-      synth.triggerAttackRelease("A3", "4n"); 
+    if (circleCount % 5 === 0) {
+      playRandomChord();
     }
   } else {
-
-    lineCount = 0;
-    startRadius = 300; 
+    circleCount = 0;
+    radius = 100;
   }
+}
+
+
+function playRandomChord() {
+  const chords = [
+    ["C4", "E4", "G4"], 
+    ["D4", "F#4", "A4"], 
+    ["E4", "G#4", "B4"], 
+    ["F4", "A4", "C5"], 
+    ["G4", "B4", "D5"], 
+    ["A4", "C#5", "E5"], 
+    ["B4", "D5", "F#5"]  
+  ];
+  const randomChord = random(chords);
+  const duration = "8n"; 
+  synth.triggerAttackRelease(randomChord, duration);
 }
 
 function windowResized() {
