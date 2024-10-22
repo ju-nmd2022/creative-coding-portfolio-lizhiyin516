@@ -46,3 +46,4 @@ function setup() {
 function windowResized() {  
   resizeCanvas(windowWidth, windowHeight);  
 }  
+//ref: https://generativeartistry.com/tutorials/hours-of-dark/
