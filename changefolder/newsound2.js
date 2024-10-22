@@ -3,7 +3,7 @@ let shapeCount = 0;
 const maxShapes = 150;
 let size = 20;
 const maxSize = 100;
-
+let isPlaying = false; // Track if the music is currently playing
 
 let synth = new Tone.Synth().toDestination(); 
 
@@ -11,9 +11,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noFill();
   
-  
   Tone.start().then(() => {
-    console.log("音频上下文已启动");
+    console.log("Audio context started");
   });
 }
 
@@ -31,7 +30,6 @@ function draw() {
 
     stroke(map(i, 0, shapeCount, 0, 255), 100, 150);
     
-
     if (i % 2 === 0) {
       rect(x, y, size, size); 
     } else {
@@ -46,8 +44,7 @@ function draw() {
   if (shapeCount < maxShapes) {
     shapeCount += 1;
 
-
-    if (shapeCount % 4 === 0) {
+    if (shapeCount % 4 === 0 && isPlaying) {
       playRandomNote();
     }
   } else {
@@ -55,7 +52,6 @@ function draw() {
     size = 20;
   }
 }
-
 
 function drawTriangle(x, y, s) {
   beginShape();
@@ -65,12 +61,22 @@ function drawTriangle(x, y, s) {
   endShape(CLOSE);
 }
 
-
 function playRandomNote() {
   const pentatonicNotes = ["C4", "D4"]; 
   const randomNote = random(pentatonicNotes);
   const duration = "8n"; 
   synth.triggerAttackRelease(randomNote, duration);
+}
+
+function mousePressed() {
+  // Toggle the play state on mouse press
+  isPlaying = !isPlaying;
+  
+  if (isPlaying) {
+    console.log("Music started");
+  } else {
+    console.log("Music stopped");
+  }
 }
 
 function windowResized() {
