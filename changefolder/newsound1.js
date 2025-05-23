@@ -13,7 +13,7 @@ function setup() {
   
 
   Tone.start().then(() => {
-    console.log("音频上下文已启动");
+    console.log("start");
   });
 }
 
