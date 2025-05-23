@@ -34,7 +34,7 @@ function setup() {
       angleModifier = cos((i / days) * (PI+PI)) * PI * 0.8 + 0.85;  
    }  
     rotate(angleModifier);  
-    let scaleVal = abs(cos((i / days) * PI)) * 2 + 1; // 这里仍然使用cos，但你可以根据需要调整  
+    let scaleVal = abs(cos((i / days) * PI)) * 2 + 1;   
     scale(scaleVal, 1);  
     fill(0);  
     rectMode(CENTER);  
