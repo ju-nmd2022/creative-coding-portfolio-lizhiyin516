@@ -3,7 +3,7 @@ let shapeCount = 0;
 const maxShapes = 150;
 let size = 20;
 const maxSize = 100;
-let isPlaying = false; // Track if the music is currently playing
+let isPlaying = false; 
 
 let synth = new Tone.Synth().toDestination(); 
 
@@ -69,7 +69,7 @@ function playRandomNote() {
 }
 
 function mousePressed() {
-  // Toggle the play state on mouse press
+ 
   isPlaying = !isPlaying;
   
   if (isPlaying) {
