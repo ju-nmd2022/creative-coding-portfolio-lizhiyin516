@@ -35,4 +35,5 @@ function draw() {
 
   angleShift += 0.005;
 }
-// here is the chatGpt conversation for help:https://chatgpt.com/share/685a9ca2-ecbc-8000-b56a-853e3fab7a3c
+
+// here is the chatGPT conversation for help: https://chatgpt.com/share/685a9ca2-ecbc-8000-b56a-853e3fab7a3c
