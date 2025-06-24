@@ -9,8 +9,8 @@ function setup() {
 }
 
 function draw() {
-  for (let r = 0; r < 300; r += 5) {
-    let c = lerpColor(color("#FF0000"), color("#FF0000"), r / 300);
+  for (let r = 300; r > 0; r -= 5) {
+    let c = lerpColor(color("#FF0000"), color("#FFFF00"), r / 300);
     fill(c);
     ellipse(centerX, centerY, r * 2, r * 1.2);
   }
@@ -18,8 +18,8 @@ function draw() {
   push();
   fill("#FFA500");
   for (let i = 10000; i > 0; i--) {
-    let x = centerX + cos(i + angleShift) * sin(i * 0.002) * 300;
-    let y = centerY + sin(i + angleShift) * cos(i * 0.002) * 200;
+    let x = centerX + cos(i + angleShift) * sin(i * 0.002) * 500;
+    let y = centerY + sin(i + angleShift) * cos(i * 0.002) * 300;
     circle(x, y, 2);
   }
   pop();
