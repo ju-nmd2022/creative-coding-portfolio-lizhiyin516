@@ -1,37 +1,38 @@
-rotation_speed = 0;
+let angleShift = 0;
 
 function setup() {
   createCanvas(1000, 600);
   noStroke();
-  background("#005");
-  h = height / 2;
- w = width / 2;
+  background("#100024");
+  centerX = width / 2;
+  centerY = height / 2;
 }
 
 function draw() {
-  for (y = 0; y < h; y += 6) {
-    c = lerpColor(color("#005"), color("#22489D"), y / h);
+  for (let r = 0; r < 300; r += 5) {
+    let c = lerpColor(color("#FF0000"), color("#FF0000"), r / 300);
     fill(c);
-    square(y, y, width - 2 * y);
+    ellipse(centerX, centerY, r * 2, r * 1.2);
   }
- push();
-  fill("#28C752");
-  for (i = 6000; i > 0; i--) {
-    x = w + sin(i + rotation_speed) * tan(i * i ) * 250;
-    y = h + 250 * cos(i * i);
+
+  push();
+  fill("#FFA500");
+  for (let i = 10000; i > 0; i--) {
+    let x = centerX + cos(i + angleShift) * sin(i * 0.002) * 300;
+    let y = centerY + sin(i + angleShift) * cos(i * 0.002) * 200;
     circle(x, y, 2);
   }
- pop();
- 
- push();
-  fill("#28C7BD");
-  for (i = 4000; i > 0; i--) {
-    x = w - cos(i + rotation_speed) * sin(i * i) * 200;
-    y = h - 200 * sin(i );
+  pop();
+
+  push();
+  fill("#FFFF00");
+  for (let i = 2500; i > 0; i--) {
+    let x = centerX + sin(i * 0.01 + angleShift) * log(i) * 50;
+    let y = centerY - cos(i * 0.01 + angleShift) * log(i) * 50;
     circle(x, y, 2);
   }
- pop();
- 
- 
-  rotation_speed += 0.01;
+  pop();
+
+  angleShift += 0.005;
 }
+// here is the chatGpt conversation for help:https://chatgpt.com/share/685a9ca2-ecbc-8000-b56a-853e3fab7a3c
